@@ -1,4 +1,4 @@
-console.log('This is ES6 version of Project 2');
+console.log('This is ES6 version of this Project');
 
 // Add Scroll Bar into the table
 let tableBody = document.getElementById('table');
