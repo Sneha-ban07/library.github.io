@@ -149,7 +149,6 @@ function libraryFormSubmit(e) {
 
     if (fiction.checked) {
         type = document.getElementById('sub1').innerText;
-
     }
     else if (programming.checked) {
         type = document.getElementById('sub2').innerText;

@@ -1,3 +1,26 @@
+function searchbar()
+{
+    let type;
+    let fiction = document.getElementById('fiction');
+    let programming = document.getElementById('programming');
+    let programming2 = document.getElementById('programming2');
+    let cooking = document.getElementById('cooking');
+
+    if (fiction.checked) {
+        type = document.getElementById('sub1').innerText;
+    }
+    else if (programming.checked) {
+        type = document.getElementById('sub2').innerText;
+    }
+    else if (programming2.checked) {
+        type = document.getElementById('sub3').innerText;
+    }
+    else if (cooking.checked) {
+        type = document.getElementById('sub4').innerText;
+    }
+    console.log(type);
+    document.getElementById('search-box').value = type;
+}
 function visible() {
     // get the clock
     var dep = document.getElementById("Department").value;
