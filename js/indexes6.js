@@ -94,6 +94,8 @@ class Display {
                             <td>${tomorrow}</td>
                         </tr>`;
         tableBody.innerHTML += uiString;
+        document.getElementById('bookName').value = "";
+        document.getElementById('author').value = "";
     }
 
     
@@ -125,6 +127,7 @@ class Display {
         setTimeout(function () {
             message.innerHTML = ''
         }, 5000);
+
     
     }
 }
@@ -141,16 +144,21 @@ function libraryFormSubmit(e) {
     let type;
     let fiction = document.getElementById('fiction');
     let programming = document.getElementById('programming');
+    let programming2 = document.getElementById('programming2');
     let cooking = document.getElementById('cooking');
 
     if (fiction.checked) {
-        type = fiction.value;
+        type = document.getElementById('sub1').innerText;
+
     }
     else if (programming.checked) {
-        type = programming.value;
+        type = document.getElementById('sub2').innerText;
+    }
+    else if (programming2.checked) {
+        type = document.getElementById('sub3').innerText;
     }
     else if (cooking.checked) {
-        type = cooking.value;
+        type = document.getElementById('sub4').innerText;
     }
 
     let book = new Book(name, author, type);
