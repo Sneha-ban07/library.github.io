@@ -6,19 +6,17 @@ jQuery(document).ready(function($) {
     var placeHldr = '<img src="https://via.placeholder.com/150">';
     var searchData;
   
-    //listener for search button
     
     $("#search").click(function() {
       outputList.innerHTML = ""; //empty html output
       document.body.style.backgroundImage = "url('')";
        searchData = searchData = $("#search-box").val();
        //handling empty search input field
-       if(searchData === "" || searchData === null) {
+       console.log(searchData);
+       if(searchData === "" || searchData === null || searchData === "undefined") {
          displayError();
        }
       else {
-         // console.log(searchData);
-         // $.get("https://www.googleapis.com/books/v1/volumes?q="+searchData, getBookData()});
          $.ajax({
             url: bookUrl + searchData,
             dataType: "json",
@@ -41,12 +39,9 @@ jQuery(document).ready(function($) {
          //clearn search box
      });
   
-     /*
-     * function to display result in index.html
-     * @param response
-     */
+    
      function displayResults(response) {
-        for (var i = 0; i < response.items.length; i+=2) {
+        for (var i = 0; i < 6; i+=2) {
           item = response.items[i];
           title1 = item.volumeInfo.title;
           author1 = item.volumeInfo.authors;
@@ -71,14 +66,9 @@ jQuery(document).ready(function($) {
         }
      }
   
-     /*
-     * card element formatter using es6 backticks and templates (indivial card)
-     * @param bookImg title author publisher bookLink
-     * @return htmlCard
-     */
+     
      function formatOutput(bookImg, title, author, publisher, bookLink) {
-       // console.log(title + ""+ author +" "+ publisher +" "+ bookLink+" "+ bookImg)
-       var viewUrl = 'book.html?isbn='; //constructing link for bookviewer
+      
        var htmlCard = `<div class="col-lg-6">
          <div class="card" style="">
            <div class="row no-gutters">
@@ -98,9 +88,8 @@ jQuery(document).ready(function($) {
        return htmlCard;
      }
   
-     //handling error for empty search box
      function displayError() {
-       alert("search term can not be empty!")
+       alert("search term can not be empty!\nPlease Select a Subject");
      }
   
 });

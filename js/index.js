@@ -1,3 +1,7 @@
+function view()
+{
+    document.getElementById('question').style.display = 'block';
+}
 function searchbar()
 {
     let type;
